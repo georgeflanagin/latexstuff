@@ -1,0 +1,39 @@
+\ProvidesPackage{gkfmacros}
+
+% The macros are written this way so that they will be 
+% redefined without errors even if they are defined in
+% some other packages. These are the definitions we
+% want to use in a GKF doco.
+
+\providecommand{\lit}{}
+\renewcommand{\lit}[1]{\texttt{\textbf{{#1}}}}
+
+\providecommand{\achtung}{}
+\renewcommand{\achtung}[1]{\begin{quote}\emph{\textbf{IMPORTANT: }}{#1}\end{quote}}
+\providecommand{\note}{}
+\renewcommand{\note}[1]{[ {\emph{Note:} {#1} --- \emph{end note.} } ] }
+
+\providecommand{\question}{}
+\renewcommand{\question}[1]{\vspace{4mm}\noindent\begin{emph}{\textbf{#1}}\end{emph}}
+\providecommand{\answer}{}
+\renewcommand{\answer}[1]{\begin{quote}{#1}\end{quote}}
+
+\providecommand{\superscript}{}
+\renewcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
+\providecommand{\subscript}{}
+\renewcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
+\providecommand{\CircleR}{}
+\renewcommand{\CircleR}{$^{\textrm{\textregistered}}$}
+
+\providecommand{\bigyes}{} 
+\renewcommand{\bigyes}{\CheckmarkBold} 
+\providecommand{\bigno}{}
+\renewcommand{\bigno}{\XSolidBold}
+
+\providecommand{\axiom}{}
+\renewcommand{\axiom}[1]{\vspace{2mm}\begin{quote}\emph{{#1}}\end{quote}\vspace{2mm}}
+
+\providecommand{\quickquote}{}
+\renewcommand{\quickquote}[2]{\begin{quote}\footnotesize\frenchspacing\emph{#1}\small\flushright{#2}\end{quote}}
+
+\endinput

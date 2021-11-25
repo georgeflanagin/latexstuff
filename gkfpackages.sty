@@ -1,0 +1,94 @@
+\ProvidesPackage{gkfpackages}[2021/11/24 Incorporating UR styles]
+
+%*************************************************
+% Revision history.
+%  1.0 Original version, 14 May 2009
+%  1.1 Added anysize, pifont, and geometry.
+%  1.2 Added typefaces and pstricks. Also added our products, some Oracle items,
+%      and the check-mark and big X for use in tables.
+%  1.4 Support for Susan's two column format.
+%  2.0 Reworked for memoir 
+%  3.0 Reworked for UR-style publications.
+%*************************************************
+
+%*************************************************
+%          PACKAGES!!!
+%*************************************************
+\usepackage{abstract} % creates indented smaller text named "abstract"
+\usepackage{amsfonts} % better math fonts
+\usepackage{amsmath}  % better appearance of math
+\usepackage{amssymb}  % as above
+\usepackage{anysize}  % easy way to set margins
+\usepackage{bbding} % for check marks and the like.
+\usepackage{calc} % for doing math with the geometry package (in particular).
+\usepackage{caption}  % for figures
+\usepackage[usenames,dvipsnames]{color} % standard colors have names in this package
+\usepackage{eso-pic}  % a necessity for diagonal watermarks.
+\usepackage{epsfig}   % processes EPS
+%\usepackage{fancyhdr} % user defined headers and footers
+\usepackage{float}    % better positioning of figures
+\usepackage[T1]{fontenc} % more typefaces, with the correct symbol set.
+%\usepackage{geometry} % fine control over margins and paper size.
+\usepackage{graphicx} % allows graphics other than EPS
+\usepackage{hyperref} % create hyperlinked documents better than \url
+\usepackage{ifthen}   % for conditional macros.
+\usepackage{lastpage} % page numbering
+\usepackage{listings} % for source code insertion
+\usepackage{multicol} % for more than two columns on a page.
+\usepackage{pdfpages} % merge external pdfs.
+\usepackage{pifont}   % ZapfDingbats symbols here and there.
+\usepackage{pstricks} % for post script drawing.
+%\usepackage{sectsty} % change the section headings.
+\usepackage{setspace} % control the inter-line and inter-paragraph spacing.
+\usepackage{subfig} % for the footer with our logo on one side, the address on the other.
+\usepackage{textcomp} % a few extra symbols, particularly currencies.
+\usepackage{timestamp}% shows 24 hour time and date
+\usepackage{type1cm}  % support for specifying large typefaces (in the watermark, mainly).
+\usepackage{url}      % creates clickable URLs in the text.
+\usepackage{verbatim} % code snippets, and the 'comment' environment.
+\usepackage{wrapfig} % allows text to flow around a specially designated figure.
+\usepackage{xcolor}   % text colors
+\usepackage{xtab}     % multipage tables.
+
+%*******
+% set the typeface.
+%*******
+\usepackage{bera}
+
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat's bookmarks
+    pdftoolbar=true,        % show Acrobat's toolbar?
+    pdfmenubar=true,        % show Acrobat's menu?
+    pdffitwindow=true,      % page fit to window when opened
+    pdftitle={My title},    % title
+    pdfauthor={Author},     % author
+    pdfsubject={Subject},   % subject of the document
+    pdfnewwindow=true,      % links in new window
+    pdfkeywords={keywords}, % list of keywords
+    colorlinks=true,        % false: boxed links; true: colored links
+    linkcolor=black,        % color of internal links
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=blue           % color of external links
+}
+
+
+
+%******************
+% Page dimensions. Note that this has nothing to do with how many columns
+% are in the body, but only controls where the body is on the page, and how
+% much space is available for the headers and footers. 
+%
+% This setting can be overridden with the \newgeometry{} directive.
+%******************
+\makeatletter
+\@ifclassloaded{memoir}{%
+    \semiisopage
+}{%
+    \geometry{top=2cm, right=1.5cm, bottom=3cm, left=1.5cm, headheight=4cm, headsep=4mm, footskip=1cm}%
+}
+\makeatother
+
+
+\endinput
