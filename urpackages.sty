@@ -1,0 +1,68 @@
+\ProvidesPackage{urpackages}[2018/03/01]
+%*************************************************
+%          PACKAGES!!!
+%*************************************************
+% If you intend to use cmap, it must be the first package.
+% cmap creates a text map that allows the PDF to be decompiled
+% and the text correctly selected.
+%*************************************************
+\usepackage{cmap}
+
+\usepackage{abstract}       % creates indented smaller text named "abstract"
+\usepackage{advdate}        % arithmetic with \today
+\usepackage{amsfonts}       % better math fonts
+\usepackage{amsmath}        % better appearance of math
+\usepackage{amssymb}        % as above
+\usepackage{anysize}        % easy way to set margins
+\usepackage{arydshln}       % dashed lines in tables.
+\usepackage{bbding}         % for check marks and the like.
+\usepackage{biblatex}       % for bibliographies
+\usepackage{booktabs}       % more choices for rules and dividers in tables.
+\usepackage{calc}           % for doing math with the geometry package (in particular).
+\usepackage{censor}         % prints a black bar instead of \censor{the text}. 
+\usepackage[usenames,dvipsnames]{color} % standard colors have names in this package
+\usepackage{datetime}       % improvements over timestamp
+\usepackage{draftwatermark} % writes a diagonal label across the middle of the page
+\usepackage{enumitem}
+\usepackage{eso-pic}        % a necessity for diagonal watermarks.
+\usepackage{epsfig}         % processes encapsulated postscript (like our logo)
+\usepackage{float}          % better positioning of figures
+\usepackage{framed}
+
+\usepackage{geometry} 
+
+\usepackage{graphicx}       % allows graphics other than EPS
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}% create hyperlinked documents better than \url
+\usepackage{ifthen}         % for conditional macros.
+\usepackage{lastpage}       % page numbering
+\usepackage{layout}
+\usepackage[pagewise,switch]{lineno}  % line numbering, on the outside, starting with 1 each page.
+\usepackage{listings}
+\usepackage{lscape}         % for making just one page landscape in a portrait doco.
+\usepackage{marginnote}
+\usepackage{mathtools}      % math symbols
+\usepackage{microtype}      % microtypography, reduces hyphenation
+\usepackage{multicol}       % for more than two columns on a page.
+\usepackage{ntheorem}       % for adding your own to the numbering scheme.
+\usepackage{pdflscape}      % allow for PDFs in landscape orientation.
+\usepackage{pdfpages}       % merge external pdfs.
+\usepackage{pifont}         % ZapfDingbats symbols here and there.
+\usepackage{pstricks}       % for postscript drawing.
+\usepackage{setspace}       % control the inter-line and inter-paragraph spacing.
+\usepackage{subfig}         % for complicated figures of figures.
+\usepackage{textcomp}       % a few extra symbols, particularly currencies.
+\usepackage{tikz}           % is it possible to do anything without tikz???
+\usepackage{type1cm}        % support for specifying large typefaces (in the watermark, mainly).
+\usepackage[normalem]{ulem} % underlining.
+\usepackage{url}            % creates clickable URLs in the text.
+\usepackage{verbatim}       % code snippets, and the 'comment' environment.
+\usepackage{wrapfig}        % allows text to flow around a specially designated figure.
+\usepackage{xcolor}         % colors beyond the standard colors
+\usepackage{xspace}         % optional space after \newcommand
+\usepackage{xtab}           % multipage tables.
+
+\endinput

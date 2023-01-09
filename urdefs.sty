@@ -1,0 +1,293 @@
+\ProvidesPackage{urdefs}[2018/03/01]
+%%%
+% This file contains all the macros/shortcuts we use at UR. 
+% Where appropriate, each is done with a providecommand + renewcommand 
+% so that naming is context independent, and we don't have to
+% worry about that particular compilation error.
+%%%
+
+\providecommand{\IJKL}{\lit{IJKL}\xspace}
+\providecommand{\UR}{Uni\-ver\-si\-ty~of~Rich\-mond\xspace}
+
+%*****************
+\providecommand{\me}{My Name\xspace}
+\providecommand{\mydept}{Administrative Systems\xspace}
+\providecommand{\myaddress}{1 Westhampton Way\\ Richmond, VA 23173\xspace}
+\providecommand{\mystreet}{Puryear Hall\xspace}
+\providecommand{\mytown}{Richmond, VA 23173\xspace}
+\providecommand{\myemail}{xxxxxxxxx@richmond.edu\xspace}
+\providecommand{\myphone}{+1.804.28X.XXXX\xspace}
+
+%  For letters ...
+
+\providecommand{\signature}[2]{#1\\ Email: #2 \\ USA: +1.804.399.2699}
+\providecommand{\telephone{+1.804.28X.XXXX}}
+\providecommand{\opening{Greetings,}} 
+\providecommand{\closing{Kind Regards,}} 
+\providecommand{\ps{}}
+\providecommand{\cc{}}
+\providecommand{\encl{}}
+
+%******************
+% Products we use and write about.
+%******************
+\providecommand{\bweb}{\emph{Banner SSB}\CircleR\xspace}
+\providecommand{\bw}{\bweb}
+\providecommand{\banner}{Banner\CircleR\xspace}
+\providecommand{\onbase}{{On\-Base\CircleR}\xspace} 
+
+\providecommand{\msword}{MS Word\CircleR\xspace}
+\providecommand{\msoffice}{Microsoft Office\CircleR\xspace}
+\providecommand{\windows}{Microsoft Windows\CircleR\xspace}
+\providecommand{\excel}{MS Excel\CircleR\xspace}
+\providecommand{\xp}{Windows XP\CircleR\xspace}
+\providecommand{\oci}{\lit{oci8}\xspace}
+\providecommand{\APEX}{Oracle Application Express\CircleR\xspace}
+\providecommand{\OIC}{Oracle Instant Client\CircleR\xspace}
+\providecommand{\OAQ}{Oracle Advanced Queue\CircleR\xspace}
+\providecommand{\javascript}{Java\-Script}
+\providecommand{\lu}{Lin\-ux$\slash$UNIX}
+\providecommand{\netid}{\lit{netid}\xspace}
+\providecommand{\netids}{\lit{netid}s\xspace}
+\providecommand{\urid}{\lit{URID}\xspace}
+\providecommand{\BOX}{Box\CircleR\xspace}
+\providecommand{\spydur}{{\fontfamily{ppl}\selectfont S\textsc{pydur}}\xspace}
+\providecommand{\andor}{and$\slash$or\xspace}
+\providecommand{\IS}{Information Services\xspace}
+\providecommand{\OOD}{Open OnDemand\CircleR\xspace}
+\providecommand{\JP}{Jupyter\xspace}
+\providecommand{\AS}{{\fontfamily{ppl}\selectfont A\textsc{uto}S\textsc{lurm}}\xspace}
+\providecommand{\opt}[1]{\lit{{-}{-}{#1}}\xspace}
+
+\providecommand{\ie}{\emph{i.e.},\xspace}
+\providecommand{\etc}{\emph{etc}.\xspace}
+
+\providecommand{\daemon}{d{\ae}mon\xspace}
+\providecommand{\daemons}{d{\ae}mons\xspace}
+
+\newcommand{\canoe}{{\fontfamily{ppl}\selectfont\textsc{Can{\o}e}}\xspace}
+\newcommand{\canoed}{\lit{canoed}\xspace}
+\newcommand{\arrow}{$\Longrightarrow$\xspace}
+\newcommand{\home}{$\sim$}
+%******************
+% a macro you need to redefine for your doco
+%******************
+\providecommand{\proj}{My\-Name\-less\-Project}
+
+\providecommand{\circled}{}
+\providecommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\providecommand{\sshconfig}{\lit{$\sim$/.ssh/config}\xspace}
+
+%*******
+% here is how usefont works: \usefont{enc}{family}{series}{shape}
+%
+%   enc :   { OT1 | T1 }
+%   famliy : name of the typeface. (phv is Adobe Helvetica)
+%   series: { m | b | bx | sb | c }
+%   shape:  { n | it | sl | sc }
+%  Family       Font Name
+%  pag          Avant Garde
+%  fvs          Bitstream Vera Sans
+%  pbk          Bookman
+%  bch          Charter
+%  ccr          Computer Concrete
+%  cmr          Computer Modern
+%  pcr          Courier
+%  mdugm        Garamond
+%  phv          Helvetica
+%  fi4          Inconsolata
+%  lmr          Latin Modern
+%  LinuxBiolinumT-OsF     Linux Biolinum (formerly 'fxb' in older package versions)
+%  LinuxLibertineT-OsF    Linux Libertine (formerly 'fxl' in older package versions)
+%  pnc          New Century Schoolbook
+%  ppl          Palatino
+%  ptm          Times
+%  uncl         Uncial
+%  put          Utopia
+%  pzc          Zapf Chancery
+%*******
+
+
+
+\providecommand{\bluerule}{}
+\providecommand{\blackrule}{}
+\providecommand{\URsection}{}
+\providecommand{\URsubsection}{}
+\providecommand{\URsubsubsection}{}
+
+% Put a dark blue rule, 1mm total space, with 0.2mm in the "ink".
+\renewcommand{\bluerule}{{\color{urblue}{\rule[1mm]{\textwidth}{0.2mm}}}}
+% The black rule doesn't quite reach the edges.
+\renewcommand{\blackrule}{\begin{center}{\color{black}{\rule[1mm]{0.8\textwidth}{0.2mm}}}\end{center}}
+\renewcommand{\URsection}[1]{\section{\color{urblue}{#1}}}
+\renewcommand{\URsubsection}[1]{\subsection{\color{urblue}{#1}}}
+\renewcommand{\URsubsubsection}[1]{\subsubsection{\color{urblue}{#1}}}
+
+
+%******************
+% University of Richmond colors
+%******************
+\definecolor{title_blue}{HTML}{153e7e}    % standard web-blue.
+\definecolor{urred}{HTML}{990000}
+\definecolor{urblue}{HTML}{000088}
+\definecolor{verylightgray}{HTML}{F8F8F8}   % for very light background shading inside frames.
+
+%******************
+% Put \urlogo anywhere you need a logo.
+%******************
+\newcommand{\urshield}{\includegraphics[width=3.5cm]{urlogo.eps}}
+\newcommand{\urlogo}{
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[width=2.5cm]{urlogo.eps}
+\end{center}
+\end{figure}
+}
+
+
+%******************
+% For lists ... something besides the bare dot ... add a little visual interest.
+%******************
+\providecommand{\labelitemi}{}
+\providecommand{\labelitemii}{}
+\renewcommand{\labelitemi}{\ding{71}}
+\renewcommand{\labelitemii}{\ding{219}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% the fun stuff: the serious macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%
+% boldface, fixed width type
+%%%
+\providecommand{\lit}{}
+\renewcommand{\lit}[1]{\textbf{\texttt{#1}}}
+
+%%%
+% Notes and warnings.
+%%%
+
+\providecommand{\achtung}{}
+\providecommand{\inote}{}
+\providecommand{\note}{}
+
+\renewcommand{\achtung}[1]{
+\begin{samepage}\begin{quote}
+\emph{\textbf{{\color{red}{IMPORTANT:}}~}}{{#1}}
+\end{quote}\end{samepage}
+}
+
+\renewcommand{\inote}[1]{{\emph{[~Note:} {#1} \emph{---~end note.~]}}}
+
+\renewcommand{\note}[1]{\begin{quote}
+\small\sloppy[~{\emph{Note:}~{#1} \emph{---~end note.}}~]\normalsize
+\end{quote}
+}
+
+%%%
+% superscript and subscript
+%%%
+\providecommand{\superscript}{}
+\providecommand{\subscript}{}
+\renewcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
+\renewcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
+
+\providecommand{\CircleR}{}
+\providecommand{\bigyes}{}
+\providecommand{\blueyes}{}
+\providecommand{\bigno}{}
+\renewcommand{\CircleR}{$^{\textrm{\textregistered}}$}
+\renewcommand{\bigyes}{{\color{green}{\CheckmarkBold}}}
+\renewcommand{\blueyes}{{\color{blue}{\CheckmarkBold}}}
+\renewcommand{\bigno}{{\small\color{red}{\XSolidBold}\normalsize}}
+
+%**********
+% For small inline citations in a drawn box, use
+%
+%  \quickquote{To be or not to be}{Bill Shakespeare}
+%**********
+\providecommand{\quickquote}{}
+\renewcommand{\quickquote}[2]{
+\begin{samepage}
+\footnotesize
+\begin{framed}
+\begin{quote}
+\frenchspacing
+\emph{#1}
+\flushright{#2}
+\end{quote}
+\end{framed}
+\end{samepage}
+}
+
+%**********
+% This is like quickquote, but the box is half the width of the page,
+% on the RHS, and the text wraps it.
+%**********
+\providecommand{\wrapquote}{}
+\renewcommand{\wrapquote}[2]{
+\begin{wrapfigure}{r}{0.47\textwidth}
+\begin{framed}
+\footnotesize
+\frenchspacing
+\emph{#1}
+\flushright{#2}
+\normalsize
+\end{framed}
+\end{wrapfigure}
+}
+
+%%%
+% Print an end of document line.
+%%%
+\providecommand{\EOD}{}
+\renewcommand{\EOD}{
+\vfill
+\begin{samepage}
+\vspace{2mm}
+\blackrule
+\normalsize
+\begin{center}
+\ding{71} \ding{71}
+\hspace{2pt}
+End of Document
+\hspace{2pt}
+\ding{71} \ding{71}
+\end{center}
+\end{samepage}
+\vfill}
+
+\makeatletter
+\def\namedlabel#1#2{\begingroup
+    #2%
+    \def\@currentlabel{#2}%
+    \phantomsection\label{#1}\endgroup
+}
+\makeatother
+
+%%%
+% Print the EOD footer.
+%%%
+\providecommand{\URfooter}{}
+\renewcommand{\URfooter}
+{\vfill
+\begin{figure}[b]
+\footnotesize
+  \setlength\fboxsep{1cm}
+  \setlength\fboxrule{0pt}
+     {\raisebox{-1.2cm}{\includegraphics[width=0.14\textwidth]{urlogo.eps}}}
+  \hfill{}
+  \begin{tabular}{ll}
+  \multicolumn{2}{l}{\textbf{\me}}\\
+  \hline \\ [-1.9ex]
+  \textbf{Phone:}&\myphone\\
+  \textbf{Address:}&\myaddress\\
+  &\UR\\
+  &\mytown\\
+  \textbf{Email:}&\myemail
+  \end{tabular}
+\end{figure}
+}
+
+\endinput

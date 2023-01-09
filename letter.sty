@@ -1,0 +1,179 @@
+\ProvidesPackage{dgi2}[2010/04/01 DGI amalgamation Version 1.4]
+
+%*************************************************
+% Revision history.
+%  1.0 Original version, 14 May 2009
+%  1.1 Added anysize, pifont, and geometry.
+%  1.2 Added typefaces and pstricks. Also added our products, some Oracle items,
+%      and the check-mark and big X for use in tables.
+%  1.4 Support for Susan's two column format.
+%*************************************************
+
+%*************************************************
+%          PACKAGES!!!
+%*************************************************
+%\usepackage{abstract} % creates indented smaller text named "abstract"
+\usepackage{amsfonts} % better math fonts
+\usepackage{amsmath}  % better appearance of math
+\usepackage{amssymb}  % as above
+\usepackage{anysize}  % easy way to set margins
+\usepackage{bbding} % for check marks and the like.
+\usepackage{calc} % for doing math with the geometry package (in particular).
+\usepackage{caption}  % for figures
+
+\usepackage[usenames,dvipsnames]{color} % standard colors have names in this package
+%\usepackage{eso-pic}  % a necessity for diagonal watermarks.
+\usepackage{epsfig}   % processes EPS
+%\usepackage{fancyhdr} % user defined headers and footers
+\usepackage{float}    % better positioning of figures
+\usepackage[T1]{fontenc} % more typefaces, with the correct symbol set.
+\usepackage{geometry} % fine control over margins and paper size.
+\usepackage{graphicx} % allows graphics other than EPS
+\usepackage{hyperref} % create hyperlinked documents better than \url
+\usepackage{ifthen}   % for conditional macros.
+\usepackage{lastpage} % page numbering
+\usepackage{listings} % for source code insertion
+\usepackage{multicol} % for more than two columns on a page.
+\usepackage{pdfpages} % merge external pdfs.
+\usepackage{pifont}   % ZapfDingbats symbols here and there.
+%\usepackage{pstricks} % for post script drawing.
+%\usepackage{sectsty} % change the section headings.
+\usepackage{setspace} % control the inter-line and inter-paragraph spacing.
+%\usepackage{subfig} % for the footer with our logo on one side, the address on the other.
+\usepackage{textcomp} % a few extra symbols, particularly currencies.
+\usepackage{timestamp}% shows 24 hour time and date
+%\usepackage{type1cm}  % support for specifying large typefaces (in the watermark, mainly).
+\usepackage{url}      % creates clickable URLs in the text.
+\usepackage{verbatim} % code snippets, and the 'comment' environment.
+\usepackage{wrapfig} % allows text to flow around a specially designated figure.
+\usepackage{xcolor}   % text colors
+\usepackage{xtab}     % multipage tables.
+
+%*******
+% set the typeface.
+%*******
+\usepackage{bera}
+
+
+
+%********* 
+% Our commands
+%*********
+\newcommand{\dgi}{\emph{Dig\-i\-tal Gas\-light, Inc.}}
+\newcommand{\DGI}{\textbf{DGI}}
+\newcommand{\dgistreet}{1901 Woodbine Road}
+\newcommand{\dgitown}{Richmond, VA 23225-3227 USA}
+\newcommand{\dgiaddress}{\dgistreet \\ \dgitown}
+\newcommand{\EIN}{\textbf{\texttt{26-1735966}}}
+
+\newcommand{\msword}{MS Word\CircleR }
+\newcommand{\msoffice}{Microsoft Office\CircleR }
+\newcommand{\windows}{Microsoft Windows\CircleR }
+\newcommand{\excel}{MS Excel\CircleR}
+\newcommand{\xp}{Windows XP\CircleR }
+
+%*********
+% People
+%*********
+\providecommand{\SRJ}{Susan R. Jacobs}
+\providecommand{\MrsJ}{Mrs.~Jacobs}
+\providecommand{\MsJ}{Ms.~Jacobs}
+
+\providecommand{\PM}{Peter Mitchell}
+\providecommand{\MrM}{Mr.~Mitchell}
+
+\providecommand{\AB}{Andy Bourassa}
+\providecommand{\MrB}{Mr.~Bourassa}
+
+\providecommand{\GKF}{George Kelly Flanagin}
+\providecommand{\MrF}{Mr.~Flanagin}
+
+\providecommand{\JS}{Julie Short}
+\providecommand{\MsS}{Ms.~Short}
+
+%******************
+% Styles that appear often in text that we write 
+%******************
+\newcommand{\lit}[1]{\textbf{{#1}}}
+
+\newcommand{\achtung}[1]{\begin{quote}\emph{\textbf{IMPORTANT: }}{#1}\end{quote}}
+\newcommand{\note}[1]{[ {\emph{Note:} {#1} --- \emph{end note.} } ] }
+
+\newcommand{\question}[1]{\vspace{4mm}\noindent\begin{emph}{\textbf{#1}}\end{emph}}
+\newcommand{\answer}[1]{\begin{quote}{#1}\end{quote}}
+
+\newcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\CircleR}{$^{\textrm{\textregistered}}$}
+
+\newcommand{\bigyes}{\CheckmarkBold} 
+\newcommand{\bigno}{\XSolidBold}
+
+\newcommand{\axiom}[1]{\vspace{2mm}\begin{quote}\emph{{#1}}\end{quote}\vspace{2mm}}
+
+\newcommand{\quickquote}[2]{\begin{quote}\footnotesize\frenchspacing\emph{#1}\small\flushright{#2}\end{quote}}
+
+%******************
+% Products
+% typeface switching is done with \usefont{enc}{family}{series}{shape}
+%******************
+\newcommand{\dgioci}{\textbf{dgi\-OCI}}
+%\newcommand{\dgix}{\textbf{\texttt{dgi-x}}}
+\newcommand{\oci}{\lit{oci8}}
+\newcommand{\XE}{Oracle 10g Express Edition\CircleR}
+\newcommand{\APEX}{Oracle Application Express\CircleR}
+\newcommand{\OIC}{Oracle Instant Client\CircleR}
+
+\newcommand{\daemon}{d\ae mon}
+
+\newcommand{\dgix}{\lit{Com\-mand\-er}}
+\newcommand{\commander}{\lit{Com\-mand\-er}\texttrademark}
+\newcommand{\lexx}{\lit{Lex\-\'i\-met\-er}\texttrademark}
+
+
+%******************
+%  For letters ...
+%******************
+\providecommand{\signature}[2]{#1\\ Email: #2 \\ USA: +1.804.286.4279 \\ Australia: +61.2.8003.3450}
+\providecommand{\address}{\dgi \\ 1901 Woodbine Road \\ Richmond, VA 23225-3227 \\ EIN: 26-1735966 \\}
+
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat's bookmarks
+    pdftoolbar=true,        % show Acrobat's toolbar?
+    pdfmenubar=true,        % show Acrobat's menu?
+    pdffitwindow=true,      % page fit to window when opened
+    pdftitle={My title},    % title
+    pdfauthor={Author},     % author
+    pdfsubject={Subject},   % subject of the document
+    pdfnewwindow=true,      % links in new window
+    pdfkeywords={keywords}, % list of keywords
+    colorlinks=true,        % false: boxed links; true: colored links
+    linkcolor=black,        % color of internal links
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=blue           % color of external links
+}
+
+%***************
+% For columns ...
+%***************
+\setlength{\columnseprule}{1pt}
+\setlength{\columnsep}{20pt}
+
+%******************
+% For tables ...
+%******************
+%\setlength\tabcolsep{3mm}  % Don't jam the columns to each other. 
+%\renewcommand{\arraystretch}{1.25}   % And give them a little vertical breathing room.
+
+%******************
+% Colors
+%******************
+\definecolor{title_blue}{HTML}{153e7e}
+\definecolor{dgiblue}{HTML}{3156d1}
+\definecolor{dgigray}{HTML}{606060}
+
+
+\endinput
+
