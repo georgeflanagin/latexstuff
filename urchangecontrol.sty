@@ -1,0 +1,97 @@
+\ProvidesPackage{urchangecontrol}[2014/02/07]
+\usepackage{urtechdoc}
+\usepackage{fullpage}
+\usepackage{bera}
+\usepackage{background}
+
+\copypagestyle{changecontrolpagestyle}{plain}
+\makeoddfoot{changecontrolpagestyle}
+{}{\footnotesize This document created on \today\ at \printtime}{}
+\makeevenfoot{changecontrolpagestyle}
+{}{\footnotesize This document created on \today\ at \printtime}{}
+
+\pagestyle{changecontrolpagestyle}
+
+%%%
+% Change control stuff
+%%%
+
+\providecommand{\changecontrol}{}
+\renewcommand{\changecontrol}{
+\urlogo
+\begin{center}
+\large
+Information Services\\
+Change Control Notification
+\normalsize
+\end{center}
+}
+
+\providecommand{\changedsystems}{}
+\renewcommand{\changedsystems}[1]{
+\paragraph{System/Application/Server(s) involved:}{#1}}
+
+\providecommand{\changedescription}{}
+\renewcommand{\changedescription}[1]{
+\paragraph{Description of change:}{#1}}
+
+
+\providecommand{\changereason}{}
+\renewcommand{\changereason}[1]{
+\paragraph{Reason for change:}{#1}}
+
+\providecommand{\impact}{}
+\renewcommand{\impact}[1]{
+\paragraph{Customer Impact:}{#1}}
+
+\providecommand{\changedate}{}
+\renewcommand{\changedate}[3]{
+\paragraph{Date of Change:}{#1}
+~{{#2}}~{{#3} US Eastern Time}
+}
+
+\providecommand{\changeimplementor}{}
+\renewcommand{\changeimplementor}[1]{
+\paragraph{Person[s] implementing change:}{#1}}
+
+\providecommand{\contactinfo}{}
+\renewcommand{\contactinfo}[1]{
+\paragraph{Contact info (cell/pager):}{#1}}
+
+\providecommand{\changetesters}{}
+\renewcommand{\changetesters}[1]{
+\paragraph{Did the requestor (or surrogate) test and sign-off?}{{#1}}}
+
+\providecommand{\impactedsignoff}{}
+% \renewcommand{\impactedsignoff}{
+% \paragraph{Did impacted (downstream) functional areas test and sign-off (who)?}{{#1}}}
+
+\providecommand{\datastewards}{}
+%\renewcommand{\datastewards}{
+%\paragraph{Did relevant data stewards (student, finance, hr, \emph{etc}.) test and sign-off (who)?}{{#1}}}
+
+\providecommand{\ifbackup}{}
+\renewcommand{\ifbackup}[1]{
+\paragraph{If required, is a backup being performed?}{#1}}
+
+\providecommand{\recoveryprocedure}{}
+\renewcommand{\recoveryprocedure}[2]{
+\paragraph{What is the recovery or back off procedure?}{#1}
+\paragraph{Time required to recover or back off:}{#2}}
+
+\providecommand{\changemanager}{}
+\renewcommand{\changemanager}[1]{\paragraph{Manager approving change:}{#1}}
+
+\providecommand{\dateofsubmission}{}
+\renewcommand{\dateofsubmission}{
+\paragraph{Date of submission:} \today}
+
+\SetWatermarkText{}
+\backgroundsetup{contents=\includegraphics{urlogo.eps}, opacity=0.03, scale=3.9, angle=0}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\setlength{\parindent}{1.5em}
+\OnehalfSpacing
+
+
+
+\endinput

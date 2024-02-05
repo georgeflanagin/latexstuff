@@ -1,0 +1,164 @@
+\ProvidesPackage{georgekindlebook}[2015/03/20]
+
+
+%*************************************************
+%          PACKAGES!!!
+%*************************************************
+\usepackage{abstract}       % creates indented smaller text named "abstract"
+\usepackage{amsfonts}       % better math fonts
+\usepackage{amsmath}        % better appearance of math
+\usepackage{amssymb}        % as above
+\usepackage{anysize}        % easy way to set margins
+\usepackage{bbding}         % for check marks and the like.
+\usepackage{biblatex}       % for bibliographies
+\usepackage{booktabs}       % more choices for rules and dividers in tables.
+\usepackage{breqn}          % automatic equation breaking
+\usepackage{calc}           % for doing math with the geometry package (in particular).
+\usepackage[font=small,labelformat=simple,]{caption}   % customizing captions
+\usepackage{censor}         % prints a black bar instead of \censor{the text}. 
+\usepackage[usenames,dvipsnames]{color} % standard colors have names in this package
+\usepackage{datetime}       % improvements over timestamp
+\usepackage{draftwatermark} % writes a diagonal label across the middle of the page
+\usepackage{eso-pic}        % a necessity for diagonal watermarks.
+\usepackage{epsfig}         % processes encapsulated postscript (like our logo)
+\usepackage{fancyhdr}       % user defined headers and footers
+\usepackage{float}          % better positioning of figures
+\usepackage{framed}
+\usepackage[T1]{fontenc}    % more typefaces, with the correct symbol set.
+
+% finer control over margins and paper size.
+\usepackage[papersize={3.6in,4.8in},hmargin=0.1in,vmargin={0.1in,0.1in}]{geometry}  % page geometry
+
+\usepackage{graphicx}       % allows graphics other than EPS
+\usepackage{hyperref}       % create hyperlinked documents better than \url
+\usepackage{ifthen}         % for conditional macros.
+\usepackage{lastpage}       % page numbering
+\usepackage{layout}
+\usepackage[right]{lineno}  % line numbering
+\usepackage{listings}       % for source code insertion
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{multicol}       % for more than two columns on a page.
+\usepackage{ntheorem}       % for adding your own to the numbering scheme.
+\usepackage{pdflscape}      % allow for PDFs in landscape orientation.
+\usepackage{pdfpages}       % merge external pdfs.
+\usepackage{pifont}         % ZapfDingbats symbols here and there.
+\usepackage{polyglossia}
+\usepackage{pst-barcode}
+\usepackage{pstricks}  % for postscript drawing.
+\usepackage{sectsty}        % change the section headings.
+\usepackage{setspace}       % control the inter-line and inter-paragraph spacing.
+\usepackage{subfig}         % for complicated figures of figures.
+\usepackage{textcomp}       % a few extra symbols, particularly currencies.
+\usepackage{type1cm}        % support for specifying large typefaces (in the watermark, mainly).
+\usepackage[normalem]{ulem} % underlining.
+\usepackage{url}            % creates clickable URLs in the text.
+\usepackage{verbatim}       % code snippets, and the 'comment' environment.
+\usepackage{wrapfig}        % allows text to flow around a specially designated figure.
+\usepackage{xcolor}
+\usepackage{xspace}         % optional space after \newcommand
+\usepackage{xtab}           % multipage tables.
+
+
+\providecommand{\ie}{\emph{i.e.},\xspace}
+\providecommand{\etc}{\emp{etc}.\xspace}
+
+\providecommand{\daemon}{d{\ae}mon\xspace}
+\providecommand{\daemons}{d{\ae}mons\xspace}
+
+
+\renewcommand{\labelitemi}{\ding{71}}
+\renewcommand{\labelitemii}{\ding{219}}
+
+
+% boldface, fixed width type
+\newcommand{\lit}[1]{\textbf{\texttt{#1}}} 
+
+% inserted items in the flow of text
+\newcommand{\achtung}[1]{\begin{framed}\begin{quote}\emph{\textbf{{\color{red}{IMPORTANT:}} }}{#1}\end{quote}\end{framed}}
+\newcommand{\note}[1]{\begin{quote}\small[ {\emph{Note:} {#1} \emph{--- end note.}} ]\normalsize\end{quote}}
+
+% for those FAQ documents.
+\newcommand{\question}[1]{\vspace{4mm}\noindent\begin{textbf}{#1}\end{textbf}}
+\newcommand{\answer}[1]{\vspace{2mm}\noindent{#1}}
+
+% super and sub.
+\newcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\CircleR}{$^{\textrm{\textregistered}}$}
+
+%**********
+% For small inline citations in a drawn box, use
+%
+%  \quickquote{To be or not to be}{Bill Shakespeare}
+%**********
+\newcommand{\quickquote}[2]{
+\begin{framed}
+\begin{quote}
+\footnotesize\frenchspacing
+\emph{#1}
+\small\flushright{#2}
+\end{quote}
+\end{framed}
+}
+
+%**********
+% This is like quickquote, but the box is half the width of the page,
+% on the RHS, and the text wraps it.
+%**********
+\newcommand{\wrapquote}[2]{
+\begin{wrapfigure}{r}{0.47\textwidth}
+\begin{framed}
+\footnotesize\frenchspacing
+\emph{#1}
+\flushright{#2}
+\normalsize
+\end{framed}
+\end{wrapfigure}
+}
+
+
+
+
+%***************
+% For columns ...
+%***************
+\setlength{\columnseprule}{0pt}
+\setlength{\columnsep}{10pt}
+\renewcommand{\headrulewidth}{0.2pt}
+\renewcommand{\footrulewidth}{0.2pt}
+
+%******************
+% For tables ...
+%******************
+\setlength\tabcolsep{1mm}            % Don't jam the columns to each other. 
+\renewcommand{\arraystretch}{1.25}   % And give them a little vertical breathing room (25% bigger).
+
+%******************
+% For paragraph spacing
+%******************
+\setlength{\parskip}{1mm plus1mm minus1mm}
+\setlength{\parindent}{0in}
+
+\setmainlanguage{english}
+
+\usepackage{titlesec}      % customizing section titles
+\titleformat{\section}{\itshape\large}{}{0em}{}
+\titlespacing{\section}{0pt}{8pt}{4pt}
+\titleformat{\subsection}{\itshape}{}{0em}{}
+\titlespacing{\subsection}{0pt}{4pt}{2pt}
+\titleformat{\subsubsection}[runin]{\bf\scshape}{}{0em}{}
+\titlespacing{\subsubsection}{0pt}{5pt}{5pt}
+
+
+\pagestyle{fancy}
+\fancyhead{}            % clear page header
+\fancyfoot{}            % clear page footer
+
+\setlength{\abovecaptionskip}{2pt} % space above captions 
+\setlength{\belowcaptionskip}{0pt} % space below captions
+\setlength{\textfloatsep}{2pt}     % space between last top float or first bottom float and the text
+\setlength{\floatsep}{2pt}         % space left between floats
+\setlength{\intextsep}{2pt}        % space left on top and bottom of an in-text float
+
+

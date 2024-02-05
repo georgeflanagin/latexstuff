@@ -58,6 +58,7 @@
 \providecommand{\JP}{Jupyter\xspace}
 \providecommand{\AS}{{\fontfamily{ppl}\selectfont A\textsc{uto}S\textsc{lurm}}\xspace}
 \providecommand{\opt}[1]{\lit{{-}{-}{#1}}\xspace}
+\providecommand{\jt}{Jo{\~a}o Tonini\xspace}
 
 \providecommand{\ie}{\emph{i.e.},\xspace}
 \providecommand{\etc}{\emph{etc}.\xspace}
@@ -77,6 +78,17 @@
 \providecommand{\circled}{}
 \providecommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 \providecommand{\sshconfig}{\lit{$\sim$/.ssh/config}\xspace}
+\makeatletter
+\newcommand{\thinspacex}{%
+  \@ifnextchar.{}{%
+    \@ifnextchar,{}{%
+      \@ifnextchar!{}{%
+        \@ifnextchar?{}{\thinspace}%
+      }%
+    }%
+  }%
+}
+\makeatother
 
 %*******
 % here is how usefont works: \usefont{enc}{family}{series}{shape}
@@ -265,29 +277,5 @@ End of Document
     \phantomsection\label{#1}\endgroup
 }
 \makeatother
-
-%%%
-% Print the EOD footer.
-%%%
-\providecommand{\URfooter}{}
-\renewcommand{\URfooter}
-{\vfill
-\begin{figure}[b]
-\footnotesize
-  \setlength\fboxsep{1cm}
-  \setlength\fboxrule{0pt}
-     {\raisebox{-1.2cm}{\includegraphics[width=0.14\textwidth]{urlogo.eps}}}
-  \hfill{}
-  \begin{tabular}{ll}
-  \multicolumn{2}{l}{\textbf{\me}}\\
-  \hline \\ [-1.9ex]
-  \textbf{Phone:}&\myphone\\
-  \textbf{Address:}&\myaddress\\
-  &\UR\\
-  &\mytown\\
-  \textbf{Email:}&\myemail
-  \end{tabular}
-\end{figure}
-}
 
 \endinput

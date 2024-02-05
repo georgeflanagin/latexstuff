@@ -21,26 +21,96 @@ End of Document
 \end{samepage}
 \vfill}
 
+\providecommand{\jt}{}
+\renewcommand{\jt}{Jo{\~a}o Tonini\xspace}
+
+
 \providecommand{\URfooter}{}
 \renewcommand{\URfooter}
 {\vfill
 \begin{figure}[b]
-    \footnotesize
-    \setlength\fboxsep{1cm}
-    \setlength\fboxrule{0pt}
+    \footnotesize % Set the type size
+    \setlength\fboxsep{1cm} % puts the floating box 1cm down.
+    \setlength\fboxrule{0pt} % "disappears" the rule at the top of the box.
         {\raisebox{-1.2cm}{\includegraphics[width=0.14\textwidth]{urlogo.pdf}}}
-    \hfill{}
-    \begin{tabular}{ll}
+    \hfill{} % Pads the horizontal space
+    \begin{tabular}{ll} % Name and address is in a table
+        \multicolumn{2}{l}{\textbf{George Flanagin, Provost Office}}\\
+        \multicolumn{2}{l}{\textbf{Academic Research Computing}}\\
+        \hline \\ [-1.9ex]
+        \textbf{Phone:}&+1.804.287.6392\\
+        \textbf{Address:}&Richmond Hall, Office 204\\
+        &114 Richmond Way\\
+        &Richmond, VA 23173\\
+        \textbf{Email:}&gflanagin@richmond.edu\\
+    \end{tabular}
+\end{figure}
+}
+
+\providecommand{\JTfooter}{}
+\renewcommand{\JTfooter}
+{\vfill
+\begin{figure}[b]
+    \footnotesize % Set the type size
+    \setlength\fboxsep{1cm} % puts the floating box 1cm down.
+    \setlength\fboxrule{0pt} % "disappears" the rule at the top of the box.
+        {\raisebox{-1.2cm}{\includegraphics[width=0.14\textwidth]{urlogo.pdf}}}
+    \hfill{} % Pads the horizontal space
+    \begin{tabular}{ll} % Name and address is in a table
+        \multicolumn{2}{l}{\textbf{Dr. \jt, Provost Office}}\\
+        \multicolumn{2}{l}{\textbf{Academic Research Computing}}\\
+        \hline \\ [-1.9ex]
+        \textbf{Phone:}&+1.804.287.1224\\
+        \textbf{Address:}&Office 204 / Lab 104\\
+        &114 Richmond Way\\
+        &Richmond, VA 23173\\
+        \textbf{Email:}&jtonini@richmond.edu\\
+    \end{tabular}
+\end{figure}
+}
+
+\providecommand{\GFfooter}{}
+\renewcommand{\GFfooter}
+{\vfill
+\begin{figure}[b]
+    \footnotesize % Set the type size
+    \setlength\fboxsep{1cm} % puts the floating box 1cm down.
+    \setlength\fboxrule{0pt} % "disappears" the rule at the top of the box.
+        {\raisebox{-1.2cm}{\includegraphics[width=0.14\textwidth]{urlogo.pdf}}}
+    \hfill{} % Pads the horizontal space
+    \begin{tabular}{ll} % Name and address is in a table
         \multicolumn{2}{l}{\textbf{George Flanagin, Provost Office}}\\
         \multicolumn{2}{l}{\textbf{Academic Research Computing}}\\
         \hline \\ [-1.9ex]
         \textbf{Phone:}&+1.804.287.6392\\
         \textbf{Address:}&Richmond Hall, Office 104\\
         &114 Richmond Way\\
-        &\UR\\
         &Richmond, VA 23173\\
         \textbf{Email:}&gflanagin@richmond.edu\\
-        \textbf{ORCID}&0000-0002-2084-5831\\
+    \end{tabular}
+\end{figure}
+}
+
+\providecommand{\ARCfooter}{}
+\renewcommand{\ARCfooter}
+{\vfill
+\begin{figure}[b]
+    \footnotesize % Set the type size
+    \setlength\fboxsep{1cm} % puts the floating box 1cm down.
+    \setlength\fboxrule{0pt} % "disappears" the rule at the top of the box.
+        {\raisebox{-1.2cm}{\includegraphics[width=0.14\textwidth]{urlogo.pdf}}}
+    \hfill{} % Pads the horizontal space
+    \begin{tabular}{ll} % Name and address is in a table
+        \multicolumn{2}{l}{\textbf{Academic Research Computing}}\\
+        \multicolumn{2}{l}{\textbf{George Flanagin \& Dr. \jt}}\\
+        \hline \\ [-1.9ex]
+        \textbf{Phone:}&+1.804.287.\{6392|1224\}\\
+        \textbf{Address:}&Richmond Hall\\
+        &Office 204 / Lab 104\\
+        &114 Richmond Way\\
+        &Richmond, VA 23173\\
+        \textbf{Email:}&gflanagin@richmond.edu\\
+        &jtonini@richmond.edu\\
     \end{tabular}
 \end{figure}
 }

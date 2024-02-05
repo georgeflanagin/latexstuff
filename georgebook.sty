@@ -1,0 +1,167 @@
+\ProvidesPackage{georgebook}[2020/12/21]
+
+%*************************************************
+%          PACKAGES!!!
+%*************************************************
+% cmap creates a text map that allows the PDF to be decompiled
+% and the text correctly selected.
+%*************************************************
+\usepackage{cmap}
+
+\usepackage{abstract}       % creates indented smaller text named "abstract"
+\usepackage{amsfonts}       % better math fonts
+\usepackage{amsmath}        % better appearance of math
+\usepackage{amssymb}        % as above
+\usepackage{anysize}        % easy way to set margins
+\usepackage{arydshln}       % dashed lines in tables.
+\usepackage{bbding}         % for check marks and the like.
+\usepackage{biblatex}       % for bibliographies
+\usepackage{booktabs}       % more choices for rules and dividers in tables.
+\usepackage{calc}           % for doing math with the geometry package (in particular).
+%\usepackage{caption}        % for figures
+\usepackage{censor}         % prints a black bar instead of \censor{the text}. 
+\usepackage[usenames,dvipsnames]{color} % standard colors have names in this package
+\usepackage{datetime}       % improvements over timestamp
+%\usepackage{draftwatermark} % writes a diagonal label across the middle of the page
+\usepackage{eso-pic}        % a necessity for diagonal watermarks.
+\usepackage{epsfig}         % processes encapsulated postscript (like our logo)
+%\usepackage{fancyhdr}       % user defined headers and footers
+\usepackage{float}          % better positioning of figures
+\usepackage{framed}
+
+% finer control over margins and paper size.
+\usepackage[hmargin=1in,top=1.1in,bottom=1.3in]{geometry} 
+
+\usepackage{graphicx}       % allows graphics other than EPS
+\usepackage[hidelinks]{hyperref}       % create hyperlinked documents better than \url
+\usepackage{ifthen}         % for conditional macros.
+\usepackage{lastpage}       % page numbering
+\usepackage{layout}
+\usepackage{lineno}  % line numbering
+%\usepackage{listings}       % for source code insertion
+\usepackage{lscape}         % for making just one page landscape in a portrait doco.
+\usepackage{mathtools}      % math symbols
+\usepackage{microtype}      % microtypography, reduces hyphenation
+\usepackage{multicol}       % for more than two columns on a page.
+\usepackage{ntheorem}       % for adding your own to the numbering scheme.
+\usepackage{pdflscape}      % allow for PDFs in landscape orientation.
+\usepackage{pdfpages}       % merge external pdfs.
+\usepackage{pifont}         % ZapfDingbats symbols here and there.
+%\usepackage{pst-barcode}    % print postal barcodes
+\usepackage{pstricks}       % for postscript drawing.
+%\usepackage{sectsty}        % change the section headings.
+\usepackage{setspace}       % control the inter-line and inter-paragraph spacing.
+\usepackage{subfig}         % for complicated figures of figures.
+\usepackage{textcomp}       % a few extra symbols, particularly currencies.
+\usepackage{tikz}           % is it possible to do anything without tikz???
+\usepackage{type1cm}        % support for specifying large typefaces (in the watermark, mainly).
+\usepackage[normalem]{ulem} % underlining.
+\usepackage{url}            % creates clickable URLs in the text.
+\usepackage{verbatim}       % code snippets, and the 'comment' environment.
+\usepackage{wrapfig}        % allows text to flow around a specially designated figure.
+\usepackage{xcolor}         % colors beyond the standard colors
+\usepackage{xspace}         % optional space after \newcommand
+\usepackage{xtab}           % multipage tables.
+
+
+%*************************************************
+% Shortcut definitions for literals.
+%*************************************************
+\providecommand{\ie}{\emph{i.e.},\xspace}
+\providecommand{\etc}{\emph{etc}.\xspace}
+\providecommand{\daemon}{d{\ae}mon\xspace}
+\providecommand{\daemons}{d{\ae}mons\xspace}
+\providecommand{\TMMM}{\emph{The~Mythical~Man~Month}\xspace}
+\providecommand{\UR}{University~of~Richmond\xspace}
+
+%*************************************************
+% Adjustments to spacing for columns, tables, and 
+% paragraphs, and list identifiers.
+%*************************************************
+\setlength{\columnseprule}{0pt}
+\setlength{\columnsep}{20pt}
+
+\setlength\tabcolsep{3mm}            % Don't jam the columns to each other.
+\renewcommand{\arraystretch}{1.25}   % And give them a little vertical breathing room (25% bigger).
+
+\setlength{\parskip}{1mm plus1mm minus1mm}
+\setlength{\parindent}{0in}
+
+\renewcommand{\labelitemi}{\ding{71}}
+\renewcommand{\labelitemii}{\ding{219}}
+
+%*******
+% here is how usefont works: \usefont{enc}{family}{series}{shape}
+%
+%   enc :   { OT1 | T1 }
+%   famliy : name of the typeface. (phv is Adobe Helvetica)
+%   series: { m | b | bx | sb | c }
+%   shape:  { n | it | sl | sc }
+%  Family       Font Name
+%  pag          Avant Garde
+%  fvs          Bitstream Vera Sans
+%  pbk          Bookman
+%  bch          Charter
+%  ccr          Computer Concrete
+%  cmr          Computer Modern
+%  pcr          Courier
+%  mdugm        Garamond
+%  phv          Helvetica
+%  fi4          Inconsolata
+%  lmr          Latin Modern
+%  LinuxBiolinumT-OsF     Linux Biolinum (formerly 'fxb' in older package versions)
+%  LinuxLibertineT-OsF    Linux Libertine (formerly 'fxl' in older package versions)
+%  pnc          New Century Schoolbook
+%  ppl          Palatino
+%  ptm          Times
+%  uncl         Uncial
+%  put          Utopia
+%  pzc          Zapf Chancery
+%*******
+%\sectionfont{\usefont{OT1}{phv}{rc}{n}\selectfont}
+%\subsectionfont{\usefont{OT1}{phv}{rc}{n}\selectfont}
+%\subsubsectionfont{\usefont{OT1}{phv}{bx}{n}\selectfont}
+
+
+%*************************************************
+% A few inline styles.
+%*************************************************
+
+% boldface, fixed width type
+\newcommand{\lit}[1]{\textbf{\texttt{#1}}}
+
+% inserted items in the flow of text
+\newcommand{\achtung}[1]{\begin{samepage}\begin{quote}\emph{\textbf{{\color{red}{IMPORTANT:}} }}{#1}\end{quote}\end{samepage}}
+\newcommand{\note}[1]{\begin{quote}\small\sloppy[ {\emph{Note:} {#1} \emph{--- end note.}}~]\normalsize\end{quote}}
+\newcommand{\inote}[1]{{\emph{[ Note:} {#1} \emph{--- end note. ]}}}
+
+% for those FAQ documents.
+\newcommand{\question}[1]{\vspace{4mm}\noindent\begin{textbf}{#1}\end{textbf}}
+\newcommand{\answer}[1]{\vspace{2mm}\noindent{#1}}
+
+% super and sub.
+\newcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\CircleR}{$^{\textrm{\textregistered}}$}
+
+% We do love checkmarks and X-s.
+\newcommand{\bigyes}{{\color{green}{\CheckmarkBold}}}
+\newcommand{\blueyes}{{\color{blue}{\CheckmarkBold}}}
+\newcommand{\bigno}{{\small\color{red}{\XSolidBold}\normalsize}}
+\newcommand{\sorta}{{\color{gray}{}}}
+
+%**********
+% For small inline citations in a drawn box, use
+%
+%  \quickquote{To be or not to be}{Bill Shakespeare}
+%**********
+\newcommand{\quickquote}[2]{
+%\begin{framed}
+\begin{quote}
+\frenchspacing
+\emph{#1}
+\small\flushright{#2}
+\end{quote}
+%\end{framed}
+}
+

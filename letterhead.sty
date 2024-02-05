@@ -1,0 +1,122 @@
+\ProvidesPackage{dgiletterhead}[2009/06/15 DGI letterhead Version 1.1]
+
+%*************************************************
+%          PACKAGES!!!
+%*************************************************
+%
+% Revision history.
+%  1.0 Original version, 14 May 2009
+%  1.1 Added anysize, pifont, and geometry.
+%*************************************************
+
+\usepackage{abstract} % creates indented smaller text named "abstract"
+\usepackage{amsfonts} % better math fonts
+\usepackage{amsmath}  % better appearance of math
+\usepackage{amssymb}  % as above
+\usepackage{anysize}  % easy way to set margins
+\usepackage{caption}  % for figures
+\usepackage{color}    % standard colors have names in this package
+\usepackage{eso-pic}  % a necessity for diagonal watermarks.
+\usepackage{epsfig}   % processes EPS
+\usepackage{fancyhdr} % user defined headers and footers
+\usepackage{float}    % better positioning of figures
+\usepackage{geometry} % fine control over margins and paper size.
+\usepackage{graphicx} % allows graphics other than EPS
+\usepackage{hyperref} % create hyperlinked documents better than \url
+\usepackage{ifthen}   % for conditional macros.
+\usepackage{lastpage} % page numbering
+\usepackage{listings} % for source code insertion
+\usepackage{pdfpages} % merge external pdfs.
+\usepackage{pifont}   % ZapfDingbats symbols.
+\usepackage{textcomp} % a few extra symbols, particularly currencies.
+\usepackage{timestamp}% shows 24 hour time and date
+\usepackage{type1cm}  % support for specifying large typefaces.
+\usepackage{url}      % creates clickable URLs in the text.
+\usepackage{verbatim} % code snippets, and the 'comment' environment.
+\usepackage{xcolor}   % text colors
+\usepackage{xtab}     % multipage tables.
+
+
+%********* Our commands
+
+
+\newcommand{\dgi}{\emph{Digital Gaslight, Inc.}}
+\newcommand{\DGI}{\textbf{DGI}}
+\newcommand{\dgiaddress}{1901 Woodbine Road \\ Richmond, VA 23225-3227 \\ USA \\ EIN: 26-1735966 }
+\newcommand{\cavtelinc}{\emph{Cavalier Telephone \& TV, Inc.}} 
+\newcommand{\aeq}{\emph{Aequus Pty. Ltd.}}
+\newcommand{\cavtel}{\emph{CavTel, Inc.}}
+\newcommand{\netcat}{\emph{Netcat.biz}}
+\newcommand{\jsi}{\emph{Jeweler's Services, Inc.}}
+\newcommand{\netcatproduct}{\textbf{Netcat WCM}}
+\newcommand{\msword}{MS Word\CircleR }
+\newcommand{\msoffice}{Microsoft Office\CircleR }
+\newcommand{\windows}{Microsoft Windows\CircleR }
+\newcommand{\xp}{Windows XP\CircleR }
+
+\providecommand{\JVA}{Jim Aragon}
+\providecommand{\MR}{Mel Riffe}
+\providecommand{\SRJ}{Susan R. Jacobs}
+\providecommand{\KC}{Katherine M. Capocelli}
+\providecommand{\AB}{Andy Bourassa}
+\providecommand{\GKF}{George Kelly Flanagin}
+
+\providecommand{\MrF}{Mr.~Flanagin}
+\providecommand{\MrR}{Mr.~Riffe}
+\providecommand{\MrB}{Mr.~Bourassa}
+\providecommand{\MsC}{Ms.~Capocelli}
+\providecommand{\MrsJ}{Mrs.~Jacobs}
+\providecommand{\MsJ}{Ms.~Jacobs}
+\providecommand{\MrA}{Mr.~Aragon}
+
+%******************
+% Added 
+%******************
+\newcommand{\achtung}[1]{\begin{quote}\emph{\textbf{IMPORTANT: }}{#1}\end{quote}}
+\newcommand{\lit}[1]{\textbf{\texttt{#1}}}
+\newcommand{\RFPquestion}[1]{\vspace{4mm}\noindent\textbf{\textsf{#1}}\vspace{4mm}}
+
+\newcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\CircleR}{$^{\textrm{\textregistered}}$}
+
+%******************
+%  For letters ...
+%******************
+\providecommand{\signature}[2]{#1\\ Email: #2 \\ USA: +1.804.286.4279 \\ Australia: +61.2.8003.3450}
+\providecommand{\address}{\dgi \\ 1901 Woodbine Road \\ Richmond, VA 23225-3227 \\ EIN: 26-1735966 \\}
+\providecommand{\telephone{}}
+\providecommand{\opening{Greetings,}} 
+\providecommand{\closing{Regards,}} 
+\providecommand{\ps{}}
+\providecommand{\cc{}}
+\providecommand{\encl{}}
+
+%******************
+% For tables ...
+%******************
+\setlength\tabcolsep{3mm}            % Don't jam the columns to each other. 
+\renewcommand{\arraystretch}{1.25}   % And give them a little vertical breathing room.
+
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat's bookmarks
+    pdftoolbar=true,        % show Acrobat's toolbar?
+    pdfmenubar=true,        % show Acrobat's menu?
+    pdffitwindow=true,      % page fit to window when opened
+    pdftitle={My title},    % title
+    pdfauthor={Author},     % author
+    pdfsubject={Subject},   % subject of the document
+    pdfnewwindow=true,      % links in new window
+    pdfkeywords={keywords}, % list of keywords
+    colorlinks=true,        % false: boxed links; true: colored links
+    linkcolor=black,        % color of internal links
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=blue           % color of external links
+}
+
+\definecolor{title_blue}{HTML}{153e7e}
+
+\endinput
+

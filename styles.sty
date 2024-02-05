@@ -1,0 +1,188 @@
+%******************
+% University of Richmond colors
+%******************
+\definecolor{title_blue}{HTML}{153e7e}    % standard web-blue.
+\definecolor{urred}{HTML}{990000}
+\definecolor{urblue}{HTML}{000088}
+\definecolor{verylightgray}{HTML}{F8F8F8}   % for very light background shading inside frames.
+
+%*******
+% set the typeface for the headings.
+%*******
+% here is how usefont works: \usefont{enc}{family}{series}{shape}
+%
+%   enc :   { OT1 | T1 }
+%   famliy : name of the typeface. (phv is Adobe Helvetica)
+%   series: { m | b | bx | sb | c }
+%   shape:  { n | it | sl | sc }
+%  Family       Font Name
+%  pag          Avant Garde
+%  fvs          Bitstream Vera Sans
+%  pbk          Bookman
+%  bch          Charter
+%  ccr          Computer Concrete
+%  cmr          Computer Modern
+%  pcr          Courier
+%  mdugm        Garamond
+%  phv          Helvetica
+%  fi4          Inconsolata
+%  lmr          Latin Modern
+%  LinuxBiolinumT-OsF     Linux Biolinum (formerly 'fxb' in older package versions)
+%  LinuxLibertineT-OsF    Linux Libertine (formerly 'fxl' in older package versions)
+%  pnc          New Century Schoolbook
+%  ppl          Palatino
+%  ptm          Times
+%  uncl         Uncial
+%  put          Utopia
+%  pzc          Zapf Chancery
+%*******
+\sectionfont{\usefont{OT1}{phv}{rc}{n}\selectfont}
+\subsectionfont{\usefont{OT1}{phv}{rc}{n}\selectfont}
+\subsubsectionfont{\usefont{OT1}{phv}{bx}{n}\selectfont}
+
+%*****************
+% Headings, in the UR colors.
+%*****************
+% Put a dark blue rule, 1mm total space, with 0.2mm in the "ink".
+\newcommand{\bluerule}{{\color{urblue}{\rule[1mm]{\textwidth}{0.2mm}}}}
+% The black rule doesn't quite reach the edges.
+\newcommand{\blackrule}{\begin{center}{\color{black}{\rule[1mm]{0.8\textwidth}{0.2mm}}}\end{center}}
+
+% Lower case \ur... headings do not appear in the outline's numbering scheme.
+\newcommand{\ursection}[1]{\section*{\color{urblue}{#1}}}
+\newcommand{\ursubsection}[1]{\subsection*{\color{urblue}{#1}}}
+\newcommand{\ursubsubsection}[1]{\subsubsection*{\color{urblue}{#1}}}
+
+% But upper case \UR... headings **do** appear in the numbering scheme.
+\newcommand{\URsection}[1]{\section{\color{urblue}{#1}}}
+\newcommand{\URsubsection}[1]{\subsection{\color{urblue}{#1}}}
+\newcommand{\URsubsubsection}[1]{\subsubsection{\color{urblue}{#1}}}
+
+% Put \urlogo anywhere you need a logo.
+\newcommand{\urshield}{\includegraphics[width=3.5cm]{urlogo.eps}}
+\newcommand{\urlogo}{
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[width=2.5cm]{urlogo.eps}
+\end{center}
+\end{figure}
+}
+
+%*******************************
+% A "fancy" page is one where you set the headers and footers,
+% thereby overriding the default style.
+%*******************************
+\pagestyle{fancy} % in this case, fancy is good.
+\renewcommand{\headrulewidth}{0pt} % we want to remove the existing default value.
+\fancyhead{} % Zap any existing headers.
+\fancyfoot{} % Zap any existing footers.
+
+%**********
+% this line puts a footer at the bottom of pages after page 1.
+% NOTE: I have never determined how to get LaTeX to retrieve the timezone,
+%       so it still must be changed here twice yearly.
+%**********
+\cfoot{\vspace{1.0mm}\small Page \thepage\ of \pageref{LastPage},
+Version of \currenttime\xspace on \today\xspace TZ-0400}
+
+%******************
+% Items that appear often in technical documents 
+%******************
+%******************
+% For lists ... something besides the bare dot ... a little visual interest.
+%******************
+\renewcommand{\labelitemi}{\ding{71}}
+\renewcommand{\labelitemii}{\ding{219}}
+
+
+% boldface, fixed width type
+\newcommand{\lit}[1]{\textbf{\texttt{#1}}} 
+
+% inserted items in the flow of text
+\newcommand{\achtung}[1]{\begin{framed}\begin{quote}\emph{\textbf{{\color{red}{IMPORTANT:}} }}{#1}\end{quote}\end{framed}}
+\newcommand{\note}[1]{\begin{quote}\small[ {\emph{Note:} {#1} \emph{--- end note.}} ]\normalsize\end{quote}}
+\newcommand{\inote}[1]{{\emph{[ Note:} {#1} \emph{--- end note. ]}}}
+
+% for those FAQ documents.
+\newcommand{\question}[1]{\vspace{4mm}\noindent\begin{textbf}{#1}\end{textbf}}
+\newcommand{\answer}[1]{\vspace{2mm}\noindent{#1}}
+
+% super and sub.
+\newcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\CircleR}{$^{\textrm{\textregistered}}$}
+
+% We do love checkmarks and X-s.
+\newcommand{\bigyes}{{\color{green}{\CheckmarkBold}}} 
+\newcommand{\blueyes}{{\color{blue}{\CheckmarkBold}}}
+\newcommand{\bigno}{{\small\color{red}{\XSolidBold}\normalsize}}
+\newcommand{\sorta}{{\color{gray}{}}}
+
+\hypersetup{
+    breaklinks=true,
+    unicode=false,          % non-Latin characters in Acrobat's bookmarks
+    pdftoolbar=true,        % show Acrobat's toolbar?
+    pdfmenubar=true,        % show Acrobat's menu?
+    pdffitwindow=true,      % page fit to window when opened
+    pdftitle={My title},    % title
+    pdfauthor={Author},     % author
+    pdfsubject={Subject},   % subject of the document
+    pdfnewwindow=true,      % links in new window
+    pdfkeywords={keywords}, % list of keywords
+    colorlinks=true,        % false: boxed links; true: colored links
+    linkcolor=black,        % color of internal links
+    citecolor=green,        % color of links to bibliography
+    filecolor=blue,         % color of file links
+    urlcolor=blue           % color of external links
+}
+
+%******************
+% For source listings.
+%******************
+\lstset{
+  basicstyle=\normalsize\ttfamily,
+  backgroundcolor=\color{verylightgray},
+  tabsize=2,
+  keywordstyle=\color{urblue},
+  frame=single,
+  %numbers=left,  % if you want a numbered listing, here is where you do it.
+  %numberstyle=\small,
+  %numbersep=3mm,
+  framexleftmargin=3mm,
+  framexrightmargin=3mm,
+  framextopmargin=3mm,
+  framexbottommargin=3mm
+}
+
+%**********
+% For small inline citations in a drawn box, use
+%
+%  \quickquote{To be or not to be}{Bill Shakespeare}
+%**********
+\newcommand{\quickquote}[2]{
+\begin{samepage}
+\begin{framed}
+\begin{quote}
+\footnotesize\frenchspacing
+\emph{#1}
+\small\flushright{#2}
+\end{quote}
+\end{framed}
+\end{samepage}
+}
+
+%**********
+% This is like quickquote, but the box is half the width of the page,
+% on the RHS, and the text wraps it.
+%**********
+\newcommand{\wrapquote}[2]{
+\begin{wrapfigure}{r}{0.47\textwidth}
+\begin{framed}
+\footnotesize\frenchspacing
+\emph{#1}
+\flushright{#2}
+\normalsize
+\end{framed}
+\end{wrapfigure}
+}
+

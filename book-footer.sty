@@ -1,0 +1,37 @@
+
+\newcommand{\EOD}{
+\vfill
+\begin{samepage}
+\vspace{2mm}
+\blackrule
+\normalsize
+\begin{center}
+\ding{71} \ding{71}
+\hspace{2pt}
+End of Document 
+\hspace{2pt}
+\ding{71} \ding{71}
+\end{center}
+\end{samepage}
+\vfill}
+
+\newcommand{\URfooter}
+{\vfill
+\begin{figure}[b]
+\footnotesize
+  \setlength\fboxsep{1cm}
+  \setlength\fboxrule{0pt}
+     {\raisebox{-1.2cm}{\includegraphics[width=0.14\textwidth]{urlogo.eps}}}
+  \hfill{}
+  \begin{tabular}{ll}
+  \multicolumn{2}{l}{\textbf{\me, Computer Scientist}}\\
+  \hline \\ [-1.9ex]
+  \textbf{Phone:}&\myphone\\
+  \textbf{Address:}&\mystreet, Office G28\\
+  &\UR\\
+  &\mytown\\
+  \textbf{Email:}&\myemail 
+  \end{tabular}
+\end{figure}
+}
+
