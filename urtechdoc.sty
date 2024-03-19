@@ -1,16 +1,447 @@
-\ProvidesPackage{urtechdoc}[2014/02/07]
+\ProvidesPackage{urtechdoc}[2024/03/19]
+\usepackage{cmap}
+%*************************************************
+% If you intend to use cmap, it must be the first package.
+% cmap creates a text map that allows the PDF to be decompiled
+% and the text correctly selected.
+%*************************************************
 
 %*************************************************
 % Revision history.
 %  2.1 Factored out all the cruft into separate sty files.
 %  Written by George Flanagin, IV ("Georges Le Grand")
 %
+%  2.2 Recombined all the separate files, but exported
+%  personal info (name, address, etc.) to one file.
 %*************************************************
-\usepackage{urpackages}
-\usepackage{urdimensions}
-\usepackage{urdefs}
 
-\usepackage{myinfo}
-\usepackage{urfooter}
+%*************************************************
+%          PACKAGES!!!
+%*************************************************
+
+\usepackage{abstract}       % creates indented smaller text named "abstract"
+\usepackage{advdate}        % arithmetic with \today
+\usepackage{amsfonts}       % better math fonts
+\usepackage{amsmath}        % better appearance of math
+\usepackage{amssymb}        % as above
+\usepackage{anysize}        % easy way to set margins
+\usepackage{arydshln}       % dashed lines in tables.
+\usepackage{bbding}         % for check marks and the like.
+\usepackage{biblatex}       % for bibliographies
+\usepackage{booktabs}       % more choices for rules and dividers in tables.
+\usepackage{calc}           % for doing math with the geometry package (in particular).
+\usepackage{censor}         % prints a black bar instead of \censor{the text}. 
+\usepackage[usenames,dvipsnames]{color} % standard colors have names in this package
+\usepackage{datetime}       % improvements over timestamp
+\usepackage{draftwatermark} % writes a diagonal label across the middle of the page
+\usepackage{enumitem}
+\usepackage{eso-pic}        % a necessity for diagonal watermarks.
+\usepackage{epsfig}         % processes encapsulated postscript (like our logo)
+\usepackage{float}          % better positioning of figures
+\usepackage{framed}
+
+\usepackage{geometry} 
+
+\usepackage{graphicx}       % allows graphics other than EPS
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}% create hyperlinked documents better than \url
+\usepackage{ifthen}         % for conditional macros.
+\usepackage{lastpage}       % page numbering
+\usepackage{layout}
+\usepackage[pagewise,switch]{lineno}  % line numbering, on the outside, starting with 1 each page.
+\usepackage{listings}
+\usepackage{lscape}         % for making just one page landscape in a portrait doco.
+\usepackage{marginnote}
+\usepackage{mathtools}      % math symbols
+\usepackage{microtype}      % microtypography, reduces hyphenation
+\usepackage{multicol}       % for more than two columns on a page.
+\usepackage{ntheorem}       % for adding your own to the numbering scheme.
+\usepackage{pdflscape}      % allow for PDFs in landscape orientation.
+\usepackage{pdfpages}       % merge external pdfs.
+\usepackage{pifont}         % ZapfDingbats symbols here and there.
+\usepackage{pstricks}       % for postscript drawing.
+\usepackage{setspace}       % control the inter-line and inter-paragraph spacing.
+\usepackage{subfig}         % for complicated figures of figures.
+\usepackage{textcomp}       % a few extra symbols, particularly currencies.
+\usepackage{tikz}           % is it possible to do anything without tikz???
+\usepackage{type1cm}        % support for specifying large typefaces (in the watermark, mainly).
+\usepackage[normalem]{ulem} % underlining.
+\usepackage{url}            % creates clickable URLs in the text.
+\usepackage{verbatim}       % code snippets, and the 'comment' environment.
+\usepackage{wrapfig}        % allows text to flow around a specially designated figure.
+\usepackage{xcolor}         % colors beyond the standard colors
+\usepackage{xspace}         % optional space after \newcommand
+\usepackage{xtab}           % multipage tables.
+
+
+
+%***************
+% For columns ...
+%***************
+\setlength{\columnseprule}{0pt}
+\setlength{\columnsep}{20pt}
+
+%******************
+% For tables ...
+%******************
+\setlength\tabcolsep{3mm}            % Don't jam the columns to each other. 
+\renewcommand{\arraystretch}{1.25}   % And give them a little vertical breathing room (25% bigger).
+
+%******************
+% For paragraph spacing
+%******************
+\setlength{\parskip}{1mm plus1mm minus1mm}
+\setlength{\parindent}{0in}
+
+
+
+%***************
+% For columns ...
+%***************
+\setlength{\columnseprule}{0pt}
+\setlength{\columnsep}{20pt}
+
+%******************
+% For tables ...
+%******************
+\setlength\tabcolsep{3mm}            % Don't jam the columns to each other. 
+\renewcommand{\arraystretch}{1.25}   % And give them a little vertical breathing room (25% bigger).
+
+%******************
+% For paragraph spacing
+%******************
+\setlength{\parskip}{1mm plus1mm minus1mm}
+\setlength{\parindent}{0in}
+
+
+%%%
+% This file contains all the macros/shortcuts we use at UR. 
+% Where appropriate, each is done with a providecommand + renewcommand 
+% so that naming is context independent, and we don't have to
+% worry about that particular compilation error.
+%%%
+\providecommand{\UR}{Uni\-ver\-si\-ty~of~Rich\-mond\xspace}
+
+%******************
+% Shortcuts for commonly found words and phrases.
+%******************
+\providecommand{\netid}{\lit{netid}\xspace}
+\providecommand{\netids}{\lit{netid}s\xspace}
+\providecommand{\urid}{\lit{URID}\xspace}
+\providecommand{\spydur}{{\fontfamily{ppl}\selectfont S\textsc{pydur}}\xspace}
+\providecommand{\andor}{and$\slash$or\xspace}
+\providecommand{\IS}{Information Services\xspace}
+\providecommand{\OOD}{Open OnDemand\CircleR\xspace}
+\providecommand{\JP}{Jupyter\xspace}
+\providecommand{\AS}{{\fontfamily{ppl}\selectfont A\textsc{uto}S\textsc{lurm}}\xspace}
+\providecommand{\opt}[1]{\lit{{-}{-}{#1}}\xspace}
+
+\providecommand{\ie}{\emph{i.e.},\xspace}
+\providecommand{\etc}{\emph{etc}.\xspace}
+
+\providecommand{\daemon}{d{\ae}mon\xspace}
+\providecommand{\daemons}{d{\ae}mons\xspace}
+
+\newcommand{\arrow}{$\Longrightarrow$\xspace}
+\newcommand{\home}{$\sim$}
+\providecommand{\jt}{}
+\renewcommand{\jt}{Jo{\~a}o Tonini\xspace}
+
+%******************
+% a macro you need to redefine for your doco
+%******************
+\providecommand{\circled}{}
+\providecommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\providecommand{\sshconfig}{\lit{$\sim$/.ssh/config}\xspace}
+\makeatletter
+\newcommand{\thinspacex}{%
+  \@ifnextchar.{}{%
+    \@ifnextchar,{}{%
+      \@ifnextchar!{}{%
+        \@ifnextchar?{}{\thinspace}%
+      }%
+    }%
+  }%
+}
+\makeatother
+
+%*******
+% here is how usefont works: \usefont{enc}{family}{series}{shape}
+%
+%   enc :   { OT1 | T1 }
+%   famliy : name of the typeface. (phv is Adobe Helvetica)
+%   series: { m | b | bx | sb | c }
+%   shape:  { n | it | sl | sc }
+%  Family       Font Name
+%  pag          Avant Garde
+%  fvs          Bitstream Vera Sans
+%  pbk          Bookman
+%  bch          Charter
+%  ccr          Computer Concrete
+%  cmr          Computer Modern
+%  pcr          Courier
+%  mdugm        Garamond
+%  phv          Helvetica
+%  fi4          Inconsolata
+%  lmr          Latin Modern
+%  LinuxBiolinumT-OsF     Linux Biolinum (formerly 'fxb' in older package versions)
+%  LinuxLibertineT-OsF    Linux Libertine (formerly 'fxl' in older package versions)
+%  pnc          New Century Schoolbook
+%  ppl          Palatino
+%  ptm          Times
+%  uncl         Uncial
+%  put          Utopia
+%  pzc          Zapf Chancery
+%*******
+\providecommand{\bluerule}{}
+\providecommand{\blackrule}{}
+\providecommand{\URsection}{}
+\providecommand{\URsubsection}{}
+\providecommand{\URsubsubsection}{}
+
+% Put a dark blue rule, 1mm total space, with 0.2mm in the "ink".
+\renewcommand{\bluerule}{{\color{urblue}{\rule[1mm]{\textwidth}{0.2mm}}}}
+% The black rule doesn't quite reach the edges.
+\renewcommand{\blackrule}{\begin{center}{\color{black}{\rule[1mm]{0.8\textwidth}{0.2mm}}}\end{center}}
+\renewcommand{\URsection}[1]{\section{\color{urblue}{#1}}}
+\renewcommand{\URsubsection}[1]{\subsection{\color{urblue}{#1}}}
+\renewcommand{\URsubsubsection}[1]{\subsubsection{\color{urblue}{#1}}}
+
+
+%******************
+% University of Richmond colors
+%******************
+\definecolor{title_blue}{HTML}{153e7e}    % standard web-blue.
+\definecolor{urred}{HTML}{990000}
+\definecolor{urblue}{HTML}{000088}
+\definecolor{verylightgray}{HTML}{F8F8F8}   % for very light background shading inside frames.
+
+%******************
+% Put \urlogo anywhere you need a logo.
+%******************
+\newcommand{\urshield}{\includegraphics[width=3.5cm]{urlogo.eps}}
+\newcommand{\urlogo}{
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[width=2.5cm]{urlogo.eps}
+\end{center}
+\end{figure}
+}
+
+%******************
+% For lists ... something besides the bare dot ... add a little visual interest.
+%******************
+\providecommand{\labelitemi}{}
+\providecommand{\labelitemii}{}
+\renewcommand{\labelitemi}{\ding{71}}
+\renewcommand{\labelitemii}{\ding{219}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% the fun stuff: the serious macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+% boldface, fixed width type
+%%%
+\providecommand{\lit}{}
+\renewcommand{\lit}[1]{\textbf{\texttt{#1}}}
+
+%%%
+% Notes and warnings.
+%%%
+
+\providecommand{\achtung}{}
+\providecommand{\inote}{}
+\providecommand{\note}{}
+
+\renewcommand{\achtung}[1]{
+\begin{samepage}\begin{quote}
+\emph{\textbf{{\color{red}{IMPORTANT:}}~}}{{#1}}
+\end{quote}\end{samepage}
+}
+
+\renewcommand{\inote}[1]{{\emph{[~Note:} {#1} \emph{---~end note.~]}}}
+
+\renewcommand{\note}[1]{\begin{quote}
+\small\sloppy[~{\emph{Note:}~{#1} \emph{---~end note.}}~]\normalsize
+\end{quote}
+}
+
+%%%
+% superscript and subscript
+%%%
+\providecommand{\superscript}{}
+\providecommand{\subscript}{}
+\renewcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
+\renewcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
+
+\providecommand{\CircleR}{}
+\providecommand{\bigyes}{}
+\providecommand{\blueyes}{}
+\providecommand{\bigno}{}
+\renewcommand{\CircleR}{$^{\textrm{\textregistered}}$}
+\renewcommand{\bigyes}{{\color{green}{\CheckmarkBold}}}
+\renewcommand{\blueyes}{{\color{blue}{\CheckmarkBold}}}
+\renewcommand{\bigno}{{\small\color{red}{\XSolidBold}\normalsize}}
+
+%**********
+% For small inline citations in a drawn box, use
+%
+%  \quickquote{To be or not to be}{Bill Shakespeare}
+%**********
+\providecommand{\quickquote}{}
+\renewcommand{\quickquote}[2]{
+\begin{samepage}
+\footnotesize
+\begin{framed}
+\begin{quote}
+\frenchspacing
+\emph{#1}
+\flushright{#2}
+\end{quote}
+\end{framed}
+\end{samepage}
+}
+
+%**********
+% This is like quickquote, but the box is half the width of the page,
+% on the RHS, and the text wraps it.
+%**********
+\providecommand{\wrapquote}{}
+\renewcommand{\wrapquote}[2]{
+\begin{wrapfigure}{r}{0.47\textwidth}
+\begin{framed}
+\footnotesize
+\frenchspacing
+\emph{#1}
+\flushright{#2}
+\normalsize
+\end{framed}
+\end{wrapfigure}
+}
+
+%%%
+% Print an end of document line.
+%%%
+\providecommand{\EOD}{}
+\renewcommand{\EOD}{
+\vfill
+\begin{samepage}
+\vspace{2mm}
+\blackrule
+\normalsize
+\begin{center}
+\ding{71} \ding{71}
+\hspace{2pt}
+End of Document
+\hspace{2pt}
+\ding{71} \ding{71}
+\end{center}
+\end{samepage}
+\vfill}
+
+\makeatletter
+\def\namedlabel#1#2{\begingroup
+    #2%
+    \def\@currentlabel{#2}%
+    \phantomsection\label{#1}\endgroup
+}
+\makeatother
+
+% A footer to be used at the end of internal documents.
+
+
+
+\providecommand{\URfooter}{}
+\renewcommand{\URfooter}
+{\vfill
+\begin{figure}[b]
+    \footnotesize % Set the type size
+    \setlength\fboxsep{1cm} % puts the floating box 1cm down.
+    \setlength\fboxrule{0pt} % "disappears" the rule at the top of the box.
+        {\raisebox{-1.2cm}{\includegraphics[width=0.14\textwidth]{urlogo.pdf}}}
+    \hfill{} % Pads the horizontal space
+    \begin{tabular}{ll} % Name and address is in a table
+        \multicolumn{2}{l}{\textbf{George Flanagin, Provost Office}}\\
+        \multicolumn{2}{l}{\textbf{Academic Research Computing}}\\
+        \hline \\ [-1.9ex]
+        \textbf{Phone:}&+1.804.287.6392\\
+        \textbf{Address:}&Richmond Hall, Office 204\\
+        &114 Richmond Way\\
+        &Richmond, VA 23173\\
+        \textbf{Email:}&gflanagin@richmond.edu\\
+    \end{tabular}
+\end{figure}
+}
+
+\providecommand{\JTfooter}{}
+\renewcommand{\JTfooter}
+{\vfill
+\begin{figure}[b]
+    \footnotesize % Set the type size
+    \setlength\fboxsep{1cm} % puts the floating box 1cm down.
+    \setlength\fboxrule{0pt} % "disappears" the rule at the top of the box.
+        {\raisebox{-1.2cm}{\includegraphics[width=0.14\textwidth]{urlogo.pdf}}}
+    \hfill{} % Pads the horizontal space
+    \begin{tabular}{ll} % Name and address is in a table
+        \multicolumn{2}{l}{\textbf{Dr. \jt, Provost Office}}\\
+        \multicolumn{2}{l}{\textbf{Academic Research Computing}}\\
+        \hline \\ [-1.9ex]
+        \textbf{Phone:}&+1.804.287.1224\\
+        \textbf{Address:}&Office 204 / Lab 104\\
+        &114 Richmond Way\\
+        &Richmond, VA 23173\\
+        \textbf{Email:}&jtonini@richmond.edu\\
+    \end{tabular}
+\end{figure}
+}
+
+\providecommand{\GFfooter}{}
+\renewcommand{\GFfooter}
+{\vfill
+\begin{figure}[b]
+    \footnotesize % Set the type size
+    \setlength\fboxsep{1cm} % puts the floating box 1cm down.
+    \setlength\fboxrule{0pt} % "disappears" the rule at the top of the box.
+        {\raisebox{-1.2cm}{\includegraphics[width=0.14\textwidth]{urlogo.pdf}}}
+    \hfill{} % Pads the horizontal space
+    \begin{tabular}{ll} % Name and address is in a table
+        \multicolumn{2}{l}{\textbf{George Flanagin, Provost Office}}\\
+        \multicolumn{2}{l}{\textbf{Academic Research Computing}}\\
+        \hline \\ [-1.9ex]
+        \textbf{Phone:}&+1.804.287.6392\\
+        \textbf{Address:}&Richmond Hall, Office 104\\
+        &114 Richmond Way\\
+        &Richmond, VA 23173\\
+        \textbf{Email:}&gflanagin@richmond.edu\\
+    \end{tabular}
+\end{figure}
+}
+
+\providecommand{\ARCfooter}{}
+\renewcommand{\ARCfooter}
+{\vfill
+\begin{figure}[b]
+    \footnotesize % Set the type size
+    \setlength\fboxsep{1cm} % puts the floating box 1cm down.
+    \setlength\fboxrule{0pt} % "disappears" the rule at the top of the box.
+        {\raisebox{-1.2cm}{\includegraphics[width=0.14\textwidth]{urlogo.pdf}}}
+    \hfill{} % Pads the horizontal space
+    \begin{tabular}{ll} % Name and address is in a table
+        \multicolumn{2}{l}{\textbf{Academic Research Computing}}\\
+        \multicolumn{2}{l}{\textbf{George Flanagin \& Dr. \jt}}\\
+        \hline \\ [-1.9ex]
+        \textbf{Phone:}&+1.804.287.\{6392|1224\}\\
+        \textbf{Address:}&Richmond Hall\\
+        &Office 204 / Lab 104\\
+        &114 Richmond Way\\
+        &Richmond, VA 23173\\
+        \textbf{Email:}&gflanagin@richmond.edu\\
+        &jtonini@richmond.edu\\
+    \end{tabular}
+\end{figure}
+}
 
 \endinput
